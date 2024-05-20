@@ -53,7 +53,54 @@
   //   echo "ikiz kenar üçgen";
   // }
 
-  $a = "5";
-  $yeniA = intval($a);  // ya da =>  (int)$a; floatval => float a dönüştürme, strval => stringe dönüstürme
+  // $a = "5";
+  // $yeniA = intval($a);  // ya da =>  (int)$a; floatval => float a dönüştürme, strval => stringe dönüstürme
+
+  // for ($i = 0; $i <= 100; $i += 2) {
+  //   echo $i."<br>";
+  // }
+
+  // for ($i = 1; $i < 10; $i++) {
+  //   for ($y = 1; $y < 10; $y++) {
+  //     $carpim = $i * $y;
+  //     echo "{$i} x {$y} = {$carpim}"."<br>";
+  //   }
+  // }
   
+  // $a = 0;
+  // while ($a <= 100) {
+  //   echo $a."<br>";
+  //   $a += 2;
+  // }
+
+  // $i = 1; 
+  // $y = 1;
+  // while ($i < 10) {
+  //   while ($y < 10) {
+  //    $sonuc = $i * $y;
+  //    echo "{$i} x {$y} = {$sonuc}"."<br>";
+  //    $y++;
+  //   }
+  //   $i++;
+  // }
+
+  $dizi = array(3, 5, 8, 15, 20);
+  $dizi.= [25];
+
+  foreach ($dizi as $i) {
+    echo $i."<br>";
+  }
+  
+
+  // $d = array(
+  //   "Ad" => "Ahmet",
+  //   "Yaş" => 25,
+  //   "Eğitim" => "Lisans"
+  // ); 
+
+  // foreach ($d as $key => $value) {
+  //   echo "$key = $value"."<br>";
+  // }
+ 
+
 ?>
