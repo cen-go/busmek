@@ -203,7 +203,7 @@
         array("marka" => "Acer", "fiyat" => 1000)
       ),
       "telefon" => array(
-        array("marka" => "iphone", "fiyat" => 1500)
+        array("marka" => "iphone", "fiyat" => 1200)
       )
     ),
     "giyim" => array(
@@ -216,14 +216,23 @@
     )
   );
 
+  /* ----------------------------- ARRAYE ÜRÜN EKLEME ÇIKARMA --------------------------------- */
+
+  $urunler["elektronik"]["telefon"][] = ["marka" => "Huawei", "fiyat" => 900];
   $urunler["elektronik"]["bilgisayar"][] = ["marka" => "Lenovo", "fiyat" => 1200];
+  $urunler["elektronik"]["bilgisayar"][] = ["marka" => "Apple", "fiyat" => 1200];
   $urunler["elektronik"]["tablet"][] = ["marka" => "ipad", "fiyat" => 1500];
+  unset($urunler["elektronik"]["bilgisayar"][0]);
+  unset($urunler["giyim"]["erkek"]);
 
 
   foreach ($urunler as $key1 => $kategoriler) {
-    echo '<h2 style="font-family: arial; padding: 0; margin-bottom: 0; color: navy;">'.$key1."</h2>"."<br>";
+    echo '<h2 style="font-family: arial; padding: 0; 
+    margin-bottom: 0; color: navy;">'.$key1."</h2>"."<br>";
     foreach ($kategoriler as $key2 => $altKategoriler) {
-      echo '<h3 style="font-family: arial; text-decoration: underline; padding: 0; margin: 2px 0; color: darkslategray;">'.$key2."</h3>"."<br>";
+      echo '<h3 style="font-family: arial; 
+      text-decoration: underline; padding: 0; 
+      margin: 2px 0; color: darkslategray;">'.$key2."</h3>"."<br>";
       foreach ($altKategoriler as $key3) {
         echo '<p style="margin: 0; padding: 0;">Marka = '.$key3["marka"].'</p>'."<br>";
         echo '<p style="margin: 0; padding: 0;">Fiyat = '.$key3["fiyat"].'</p>'."<br>";
@@ -231,6 +240,47 @@
     }
   }
 
+  /* --------------------------------- ARRAY FİLTRELEME --------------------------------------- */
+
+  
+
+  $filtreliListe = [];
+  foreach ($urunler as $key1 => $kategoriler) {
+    foreach ($kategoriler as $key2 => $sonKategoriler) {
+      $filtre = array_filter($sonKategoriler, function($urun) {
+        return $urun["fiyat"] < 1000;
+      });
+      if (!empty($filtre)) {
+        $filtreliListe[] = $filtre;
+      }
+    }
+  }
+
+  var_dump($filtreliListe);
+
+  /* ---------- ALTERNATİF FİLTRELEME ----------- */
+
+  $fiyat = [];
+  foreach ($urunler as $kategori) {
+    foreach ($kategori as $altk) {
+      foreach ($altk as $urun) {
+        if ($urun["fiyat"] < 1000) {
+          $fiyat[] = $urun;
+        }
+      }
+    }
+  }
+
+  var_dump($fiyat);
+
+  $apple = [];
+  foreach ($urunler["elektronik"]["bilgisayar"] as $urun) {
+    if ($urun["marka"] === "Apple") {
+      $apple[] = $urun;
+    }
+  }
+
+  var_dump($apple);
 
 
   
