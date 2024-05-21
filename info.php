@@ -216,14 +216,17 @@
     )
   );
 
+  $urunler["elektronik"]["bilgisayar"][] = ["marka" => "Lenovo", "fiyat" => 1200];
+  $urunler["elektronik"]["tablet"][] = ["marka" => "ipad", "fiyat" => 1500];
+
 
   foreach ($urunler as $key1 => $kategoriler) {
-    echo $key1."<br>";
+    echo '<h2 style="font-family: arial; padding: 0; margin-bottom: 0; color: navy;">'.$key1."</h2>"."<br>";
     foreach ($kategoriler as $key2 => $altKategoriler) {
-      echo "<strong>".$key2."</strong>"."<br>";
+      echo '<h3 style="font-family: arial; text-decoration: underline; padding: 0; margin: 2px 0; color: darkslategray;">'.$key2."</h3>"."<br>";
       foreach ($altKategoriler as $key3) {
-        echo "Marka = ".$key3["marka"]."<br>";
-        echo "Fiyat = ".$key3["fiyat"]."<br>";
+        echo '<p style="margin: 0; padding: 0;">Marka = '.$key3["marka"].'</p>'."<br>";
+        echo '<p style="margin: 0; padding: 0;">Fiyat = '.$key3["fiyat"].'</p>'."<br>";
       }
     }
   }
