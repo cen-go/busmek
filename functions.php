@@ -42,6 +42,63 @@
 
   echo carp(25);
 
+  echo "<br>";
+
+  function sayac() {
+    static $sayi = 0;
+    $sayi++;
+    return $sayi;
+  }
+
+  echo sayac();
+  echo "<br>";
+  echo sayac();
+  echo "<br>";
+  echo sayac();
+  echo "<br>";
+
+  $dene = function() {
+    return "merhaba";
+  };
+
+  echo $dene();
+
+  echo "<br>";
+  
+  function diziToplami($dizi) {
+    $toplam = 0;
+    foreach ($dizi as $i) {
+      $toplam += $i;
+    }
+    return $toplam;
+  }
+
+  $degerlerim = [3, 5, 7, 12, 25];
+  
+  echo diziToplami($degerlerim);
+
+  echo "<br>";
+
+  $sayi = 10;
+  function sayiyicarp(&$deger) {
+    $deger *= 2;     
+  }
+
+  sayiyicarp($sayi);
+  echo $sayi;
+
+  echo "<br>";
+
+  function topla($a, $b) {
+    return $a + $b;
+  }
+
+  function carpim($x, $y, $z) {
+    $carpma = $x * $y;
+    return topla($carpma, $z);
+  }
+
+  echo carpim(3, 5, 7);
 
 
 ?>
