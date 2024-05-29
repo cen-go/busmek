@@ -1,0 +1,12 @@
+body {
+  background-color: #ededed1b;
+}
+
+.sol-sutun {
+  height: 100vh;
+  background-color: rgb(239, 251, 247);
+  padding-top: 80px;  
+}
+.btn-left {
+  width: 100%;
+}
